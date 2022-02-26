@@ -1,0 +1,6 @@
+csP <- splinefun(Tms, Pdata, method = "monoH.FC")
+ifr <- function(T) -csP(T, deriv = 1)/csP(T, deriv = 0)
+curve(ifr(x), 0, 3, col = "blue", ylab = "Inst Fwd Rate", xlab = "Time")
+points(Tms, Pdata, col = "red", cex = 5)
+text(1.8, 0.056, labels = "First derivative is not continuous")
+arrows(1.45, 0.0565, 1.2, 0.058, col = "blue", length = 0.1)
